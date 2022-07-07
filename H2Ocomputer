@@ -1,0 +1,37 @@
+;#*
+row_num=2
+last_layer_total_row_num=42
+layer=3
+line_max=4
+
+row_numa=row_num+last_layer_total_row_num+5
+
+for(j 1 line_max
+
+;TIOX p
+H2Ocomputer_outport= outfile("/home/IC/Desktop/H2Ocomputer" "w")
+{
+string1="schHiCreateInst()\nschCreateInstForm->viewName->value=\"spectre\"\nschCreateInstForm->cellName->value=\"TIOX\"\nschCreateInstForm->viewName->value=\"spectre\"\n"
+string2=strcat("schCreateInstForm->instanceName->value=\"crossbar" sprintf(s "%d" layer) "_R_" sprintf(s "%d" j) "_" sprintf(s "%d" row_num) "_p" "\"" "\n")
+string3=strcat("schCreateInstForm->state->value=\"crossbar" sprintf(s "%d" layer) "_G_" sprintf(s "%d" j) "_" sprintf(s "%d" row_num) "_p" "\"" "\n")
+string4="schCreateInstForm->regTerms->value= \"all terminals\"\n"
+string5="_schCreateCustomizeButtonCB(schCreateInstForm)\n"
+string6="hiiSetCurrentForm('schCreateTermRegForm)\n"
+string7="sevTableSelectRows(schCreateTermRegForm->schsevTable 0)\n"
+string8=strcat("sevSetTableItem(schCreateTermRegForm->schsevTable 0 1 \"crossbar" sprintf(s "%d" layer) "_row_" sprintf(s "%d" row_num) "_p" "\"" ")" "\n")
+string9="sevTableSelectRows(schCreateTermRegForm->schsevTable 1)\n"
+string10=strcat("sevSetTableItem(schCreateTermRegForm->schsevTable 1 1 \"crossbar" sprintf(s "%d" layer) "_line" sprintf(s "%d" j) "\")" "\n")
+string11="hiFormDone(schCreateTermRegForm)\n"
+string12="hiiToggleEnterForm(schCreateInstForm)\n"
+string13="mouseAddPt(t)\n"
+string14=strcat(";hipan()\n" sprintf(s "%f" row_numa*4.0) ":" sprintf(s "%f" -j*2.5) "\n")
+string15="cancelEnterFun()\ncancelEnterFun()\n"
+string=strcat(string1 string2 string3 string4 string5 string6 string7 string8 string9 string10 string11 string12 string13 string14 string15)
+fprintf(H2Ocomputer_outport "%s" string)    
+;*******************************************************************************************************************************
+
+}
+close(H2Ocomputer_outport)
+load("/home/IC/Desktop/H2Ocomputer")
+;TIOX n
+;*******************************************************

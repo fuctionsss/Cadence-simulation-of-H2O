@@ -1,0 +1,20 @@
+schHiCreateInst()
+schCreateInstForm->viewName->value="symbol"
+schCreateInstForm->cellName->value="tanhV_V"
+schCreateInstForm->viewName->value="symbol"
+schCreateInstForm->instanceName->value="crossbar3_row3_tanhV_V"
+schCreateInstForm->regTerms->value= "all terminals"
+_schCreateCustomizeButtonCB(schCreateInstForm)
+hiiSetCurrentForm('schCreateTermRegForm)
+sevSetTableItem(schCreateTermRegForm->schsevTable 4 1 "crossbar3_CSB_Vout_row_3")
+sevSetTableItem(schCreateTermRegForm->schsevTable 3 1 "crossbar4_line3")
+sevSetTableItem(schCreateTermRegForm->schsevTable 0 1 "GND")
+sevSetTableItem(schCreateTermRegForm->schsevTable 2 1 "VDD")
+sevSetTableItem(schCreateTermRegForm->schsevTable 1 1 "VSS")
+hiFormDone(schCreateTermRegForm)
+mouseAddPt(t)
+;hipan()
+200.000000:-55.000000
+cancelEnterFun()
+cancelEnterFun()
+printf("\n\ncurrent:%d\nnext:%d\n" 3 4)

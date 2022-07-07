@@ -1,0 +1,748 @@
+/*******************************************Adjust in here***********************************/
+Tcomputer=1e-6
+DataNum=20
+DelaySampleTime=1e-8
+EndTime=DataNum*Tcomputer+DelaySampleTime
+;load("/home/IC/Desktop/tran_2V")
+/********************************************************************************************/
+simulator( 'spectre )
+design(	 "/home/IC/simulation/Tran_test_2V_lower/spectre/schematic/netlist/netlist")
+resultsDir( "/home/IC/simulation/Tran_test_2V_lower/spectre/schematic" )
+modelFile( 
+    '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../models/spectre/c18_core18_io33_header_spectre.scs" "c18_hp_tt")
+    '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../models/spectre/c18_core18_io33_header_spectre.scs" "c18_to_tt")
+    '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../models/spectre/c18_core18_io33_header_spectre.scs" "c18_nat_tt")
+    '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../models/spectre/c18_core18_io33_header_spectre.scs" "c18_mvt_tt")
+    '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../models/spectre/c18_core18_io33_header_spectre.scs" "c18_nvar_tt")
+    '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../models/spectre/c18_core18_io33_header_spectre.scs" "c18_res_tt")
+    '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../models/spectre/c18_core18_io33_header_spectre.scs" "c18_diode_tt")
+    '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../models/spectre/c18_core18_io33_header_spectre.scs" "c18_mim_cap_tt")
+    '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../models/spectre/c18_core18_io33_header_spectre.scs" "c18_fingercap_tt")
+    '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../models/spectre/c18_core18_io33_header_spectre.scs" "c18_bjt_tt")
+    '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../models/spectre/SilterraC18RFKit.scs" "c18rf_hp_tt")
+    '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../models/spectre/SilterraC18RFKit.scs" "c18rf_to_tt")
+    '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../models/spectre/SilterraC18RFKit.scs" "c18rf_nvar_nom")
+    '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../models/spectre/SilterraC18RFKit.scs" "c18rf_pnvar_nom")
+    '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../models/spectre/SilterraC18RFKit.scs" "c18rf_mfc_nom")
+    '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../models/spectre/SilterraC18RFKit.scs" "c18rf_mim_nom")
+    '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../models/spectre/SilterraC18RFKit.scs" "c18rf_res_tt")
+    '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../models/spectre/SilterraC18RFKit.scs" "c18rf_xfmr_nom")
+    '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../models/spectre/SilterraC18RFKit.scs" "c18rf_stacked_inductor_tt")
+    '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../RFESDPAD/models/spectre/silc18g_sigpad_4lm_rev1_2.scs" "silc18g_sigpad_4lm_nom")
+)
+
+;analysis('tran ?stop EndTime  ?errpreset "conservative"  ?tranNoise "Transient Noise"  ?noisefmax "1000M"  ?noisefmin "1M"  ?noiseseed "1"  ?noisescale "0.5"  ?noisetmin ""  ?noiseupdate "step"  ?noiseonoff ""  ?noiseinst ""  )
+analysis('tran ?stop EndTime  ?errpreset "conservative")
+
+desVar(	  "GND" 0	)
+desVar(	  "VDD" 2	)
+desVar(	  "VSS" -2	)
+desVar(	"crossbar1_G_1_1_p" 62773.58551025
+  )
+desVar(	"crossbar1_G_1_1_n" 9000.00000000
+  )
+desVar(	"crossbar1_G_1_2_p" 62773.58551025
+  )
+desVar(	"crossbar1_G_1_2_n" 9000.00000000
+  )
+desVar(	"crossbar1_G_1_3_p" 9000.00000000
+  )
+desVar(	"crossbar1_G_1_3_n" 60980.19790649
+  )
+desVar(	"crossbar1_G_1_4_p" 57561.14959717
+  )
+desVar(	"crossbar1_G_1_4_n" 9000.00000000
+  )
+desVar(	"crossbar1_G_1_5_p" 62773.58551025
+  )
+desVar(	"crossbar1_G_1_5_n" 9000.00000000
+  )
+desVar(	"crossbar1_G_1_6_p" 56802.19688416
+  )
+desVar(	"crossbar1_G_1_6_n" 9000.00000000
+  )
+desVar(	"crossbar1_G_1_7_p" 12383.45947266
+  )
+desVar(	"crossbar1_G_1_7_n" 9000.00000000
+  )
+desVar(	"crossbar1_G_1_8_p" 62773.58551025
+  )
+desVar(	"crossbar1_G_1_8_n" 9000.00000000
+  )
+desVar(	"crossbar1_G_1_9_p" 9000.00000000
+  )
+desVar(	"crossbar1_G_1_9_n" 62773.58551025
+  )
+desVar(	"crossbar1_G_1_10_p" 9000.00000000
+  )
+desVar(	"crossbar1_G_1_10_n" 46155.96427917
+  )
+desVar(	"crossbar1_G_2_1_p" 9000.00000000
+  )
+desVar(	"crossbar1_G_2_1_n" 51592.59338379
+  )
+desVar(	"crossbar1_G_2_2_p" 23705.87997437
+  )
+desVar(	"crossbar1_G_2_2_n" 9000.00000000
+  )
+desVar(	"crossbar1_G_2_3_p" 39310.88104248
+  )
+desVar(	"crossbar1_G_2_3_n" 9000.00000000
+  )
+desVar(	"crossbar1_G_2_4_p" 9000.00000000
+  )
+desVar(	"crossbar1_G_2_4_n" 46155.96427917
+  )
+desVar(	"crossbar1_G_2_5_p" 9000.00000000
+  )
+desVar(	"crossbar1_G_2_5_n" 12383.45947266
+  )
+desVar(	"crossbar1_G_2_6_p" 9000.00000000
+  )
+desVar(	"crossbar1_G_2_6_n" 39310.88104248
+  )
+desVar(	"crossbar1_G_2_7_p" 9000.00000000
+  )
+desVar(	"crossbar1_G_2_7_n" 56014.92691040
+  )
+desVar(	"crossbar1_G_2_8_p" 9000.00000000
+  )
+desVar(	"crossbar1_G_2_8_n" 26088.60855103
+  )
+desVar(	"crossbar1_G_2_9_p" 9000.00000000
+  )
+desVar(	"crossbar1_G_2_9_n" 30428.57208252
+  )
+desVar(	"crossbar1_G_2_10_p" 9000.00000000
+  )
+desVar(	"crossbar1_G_2_10_n" 39310.88104248
+  )
+desVar(	"crossbar1_G_3_1_p" 15521.73843384
+  )
+desVar(	"crossbar1_G_3_1_n" 9000.00000000
+  )
+desVar(	"crossbar1_G_3_2_p" 9000.00000000
+  )
+desVar(	"crossbar1_G_3_2_n" 15521.73843384
+  )
+desVar(	"crossbar1_G_3_3_p" 9000.00000000
+  )
+desVar(	"crossbar1_G_3_3_n" 28325.15029907
+  )
+desVar(	"crossbar1_G_3_4_p" 62773.58551025
+  )
+desVar(	"crossbar1_G_3_4_n" 9000.00000000
+  )
+desVar(	"crossbar1_G_3_5_p" 62773.58551025
+  )
+desVar(	"crossbar1_G_3_5_n" 9000.00000000
+  )
+desVar(	"crossbar1_G_3_6_p" 62773.58551025
+  )
+desVar(	"crossbar1_G_3_6_n" 9000.00000000
+  )
+desVar(	"crossbar1_G_3_7_p" 62773.58551025
+  )
+desVar(	"crossbar1_G_3_7_n" 9000.00000000
+  )
+desVar(	"crossbar1_G_3_8_p" 12383.45947266
+  )
+desVar(	"crossbar1_G_3_8_n" 9000.00000000
+  )
+desVar(	"crossbar1_G_3_9_p" 9000.00000000
+  )
+desVar(	"crossbar1_G_3_9_n" 39310.88104248
+  )
+desVar(	"crossbar1_G_3_10_p" 9000.00000000
+  )
+desVar(	"crossbar1_G_3_10_n" 62773.58551025
+  )
+desVar(	"crossbar2_G_1_1_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_1_1_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_1_2_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_1_2_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_1_3_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_1_3_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_1_4_p" 28325.15029907
+  )
+desVar(	"crossbar2_G_1_4_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_1_5_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_1_5_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_1_6_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_1_6_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_1_7_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_1_7_n" 62773.58551025
+  )
+desVar(	"crossbar2_G_1_8_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_1_8_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_1_9_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_1_9_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_1_10_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_1_10_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_2_1_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_2_1_n" 62773.58551025
+  )
+desVar(	"crossbar2_G_2_2_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_2_2_n" 62773.58551025
+  )
+desVar(	"crossbar2_G_2_3_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_2_3_n" 9000.00000000
+  )
+ desVar(	"crossbar2_G_2_4_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_2_4_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_2_5_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_2_5_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_2_6_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_2_6_n" 51592.59338379
+  )
+desVar(	"crossbar2_G_2_7_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_2_7_n" 62773.58551025
+  )
+desVar(	"crossbar2_G_2_8_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_2_8_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_2_9_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_2_9_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_2_10_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_2_10_n" 62773.58551025
+  )
+desVar(	"crossbar2_G_3_1_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_3_1_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_3_2_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_3_2_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_3_3_p" 43615.38276672
+  )
+desVar(	"crossbar2_G_3_3_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_3_4_p" 51592.59338379
+  )
+desVar(	"crossbar2_G_3_4_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_3_5_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_3_5_n" 46155.96427917
+  )
+desVar(	"crossbar2_G_3_6_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_3_6_n" 62773.58551025
+  )
+desVar(	"crossbar2_G_3_7_p" 39310.88104248
+  )
+desVar(	"crossbar2_G_3_7_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_3_8_p" 61597.40295410
+  )
+desVar(	"crossbar2_G_3_8_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_3_9_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_3_9_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_3_10_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_3_10_n" 62773.58551025
+  )
+desVar(	"crossbar2_G_4_1_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_4_1_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_4_2_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_4_2_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_4_3_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_4_3_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_4_4_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_4_4_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_4_5_p" 28325.15029907
+  )
+desVar(	"crossbar2_G_4_5_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_4_6_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_4_6_n" 62773.58551025
+  )
+desVar(	"crossbar2_G_4_7_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_4_7_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_4_8_p" 54348.83651733
+  )
+desVar(	"crossbar2_G_4_8_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_4_9_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_4_9_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_4_10_p" 43615.38276672
+  )
+desVar(	"crossbar2_G_4_10_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_5_1_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_5_1_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_5_2_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_5_2_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_5_3_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_5_3_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_5_4_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_5_4_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_5_5_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_5_5_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_5_6_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_5_6_n" 62773.58551025
+  )
+desVar(	"crossbar2_G_5_7_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_5_7_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_5_8_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_5_8_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_5_9_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_5_9_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_5_10_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_5_10_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_6_1_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_6_1_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_6_2_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_6_2_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_6_3_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_6_3_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_6_4_p" 43615.38276672
+  )
+desVar(	"crossbar2_G_6_4_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_6_5_p" 52548.38676453
+  )
+desVar(	"crossbar2_G_6_5_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_6_6_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_6_6_n" 62773.58551025
+  )
+desVar(	"crossbar2_G_6_7_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_6_7_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_6_8_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_6_8_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_6_9_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_6_9_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_6_10_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_6_10_n" 23705.87997437
+  )
+desVar(	"crossbar2_G_7_1_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_7_1_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_7_2_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_7_2_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_7_3_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_7_3_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_7_4_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_7_4_n" 56014.92691040
+  )
+desVar(	"crossbar2_G_7_5_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_7_5_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_7_6_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_7_6_n" 62773.58551025
+  )
+desVar(	"crossbar2_G_7_7_p" 52548.38676453
+  )
+desVar(	"crossbar2_G_7_7_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_7_8_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_7_8_n" 56014.92691040
+  )
+desVar(	"crossbar2_G_7_9_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_7_9_n" 39310.88104248
+  )
+desVar(	"crossbar2_G_7_10_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_7_10_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_8_1_p" 23705.87997437
+  )
+desVar(	"crossbar2_G_8_1_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_8_2_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_8_2_n" 15521.73843384
+  )
+desVar(	"crossbar2_G_8_3_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_8_3_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_8_4_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_8_4_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_8_5_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_8_5_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_8_6_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_8_6_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_8_7_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_8_7_n" 58293.28536987
+  )
+desVar(	"crossbar2_G_8_8_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_8_8_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_8_9_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_8_9_n" 9000.00000000
+  )
+ desVar(	"crossbar2_G_8_10_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_8_10_n" 18440.55862427
+  )
+desVar(	"crossbar2_G_9_1_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_9_1_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_9_2_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_9_2_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_9_3_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_9_3_n" 56014.92691040
+  )
+desVar(	"crossbar2_G_9_4_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_9_4_n" 43615.38276672
+  )
+desVar(	"crossbar2_G_9_5_p" 28325.15029907
+  )
+desVar(	"crossbar2_G_9_5_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_9_6_p" 12383.45947266
+  )
+desVar(	"crossbar2_G_9_6_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_9_7_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_9_7_n" 62773.58551025
+  )
+desVar(	"crossbar2_G_9_8_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_9_8_n" 15521.73843384
+  )
+desVar(	"crossbar2_G_9_9_p" 60980.19790649
+  )
+desVar(	"crossbar2_G_9_9_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_9_10_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_9_10_n" 49557.93914795
+  )
+desVar(	"crossbar2_G_10_1_p" 56014.92691040
+  )
+desVar(	"crossbar2_G_10_1_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_10_2_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_10_2_n" 62773.58551025
+  )
+desVar(	"crossbar2_G_10_3_p" 56014.92691040
+  )
+desVar(	"crossbar2_G_10_3_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_10_4_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_10_4_n" 62773.58551025
+  )
+desVar(	"crossbar2_G_10_5_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_10_5_n" 36049.18441772
+  )
+desVar(	"crossbar2_G_10_6_p" 62773.58551025
+  )
+desVar(	"crossbar2_G_10_6_n" 9000.00000000
+  )
+desVar(	"crossbar2_G_10_7_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_10_7_n" 62773.58551025
+  )
+desVar(	"crossbar2_G_10_8_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_10_8_n" 56014.92691040
+  )
+desVar(	"crossbar2_G_10_9_p" 9000.00000000
+  )
+desVar(	"crossbar2_G_10_9_n" 54348.83651733
+  )
+desVar(	"crossbar2_G_10_10_p" 15521.73843384
+  )
+desVar(	"crossbar2_G_10_10_n" 9000.00000000
+  )
+desVar(	"crossbar3_G_1_1_p" 62773.58551025
+  )
+desVar(	"crossbar3_G_1_1_n" 9000.00000000
+  )
+desVar(	"crossbar3_G_1_2_p" 62773.58551025
+  )
+desVar(	"crossbar3_G_1_2_n" 9000.00000000
+  )
+desVar(	"crossbar3_G_2_1_p" 62773.58551025
+  )
+desVar(	"crossbar3_G_2_1_n" 9000.00000000
+  )
+desVar(	"crossbar3_G_2_2_p" 62773.58551025
+  )
+desVar(	"crossbar3_G_2_2_n" 9000.00000000
+  )
+desVar(	"crossbar3_G_3_1_p" 9000.00000000
+  )
+desVar(	"crossbar3_G_3_1_n" 62773.58551025
+  )
+desVar(	"crossbar3_G_3_2_p" 62773.58551025
+  )
+desVar(	"crossbar3_G_3_2_n" 9000.00000000
+  )
+desVar(	"crossbar3_G_4_1_p" 9000.00000000
+  )
+desVar(	"crossbar3_G_4_1_n" 62773.58551025
+  )
+desVar(	"crossbar3_G_4_2_p" 9000.00000000
+  )
+desVar(	"crossbar3_G_4_2_n" 62773.58551025
+  )
+desVar(	"crossbar3_G_5_1_p" 9000.00000000
+  )
+desVar(	"crossbar3_G_5_1_n" 62773.58551025
+  )
+desVar(	"crossbar3_G_5_2_p" 42251.23100281
+  )
+desVar(	"crossbar3_G_5_2_n" 9000.00000000
+  )
+desVar(	"crossbar3_G_6_1_p" 9000.00000000
+  )
+desVar(	"crossbar3_G_6_1_n" 62773.58551025
+  )
+desVar(	"crossbar3_G_6_2_p" 62773.58551025
+  )
+desVar(	"crossbar3_G_6_2_n" 9000.00000000
+  )
+desVar(	"crossbar3_G_7_1_p" 62773.58551025
+  )
+desVar(	"crossbar3_G_7_1_n" 9000.00000000
+  )
+desVar(	"crossbar3_G_7_2_p" 9000.00000000
+  )
+desVar(	"crossbar3_G_7_2_n" 62773.58551025
+  )
+desVar(	"crossbar3_G_8_1_p" 9000.00000000
+  )
+desVar(	"crossbar3_G_8_1_n" 62773.58551025
+  )
+desVar(	"crossbar3_G_8_2_p" 9000.00000000
+  )
+desVar(	"crossbar3_G_8_2_n" 62773.58551025
+  )
+desVar(	"crossbar3_G_9_1_p" 9000.00000000
+  )
+desVar(	"crossbar3_G_9_1_n" 62773.58551025
+  )
+desVar(	"crossbar3_G_9_2_p" 37723.40469360
+  )
+desVar(	"crossbar3_G_9_2_n" 9000.00000000
+  )
+desVar(	"crossbar3_G_10_1_p" 9000.00000000
+  )
+desVar(	"crossbar3_G_10_1_n" 40818.18466187
+  )
+desVar(	"crossbar3_G_10_2_p" 62773.58551025
+  )
+desVar(	"crossbar3_G_10_2_n" 9000.00000000
+  )
+ envOption(
+	'analysisOrder  list("tran") 
+)
+
+
+option( 'nthreads  "16" 
+ 'multithread  "on" 
+ 'temp  "27.0" 
+)
+/*
+option( ?categ 'turboOpts
+ 'numThreads  "16" 
+ 'mtOption  "Manual" 
+ 'apsplus  t 
+ 'errorLevel  "Conservative" 
+ 'uniMode  "APS" 
+)
+*/
+/*
+save( 'i "/crossbar1_row1_CSB/I1" "/crossbar1_row1_CSB/I2" )
+save( 'i "/crossbar1_row2_CSB/I1" "/crossbar1_row2_CSB/I2" )
+save( 'i "/crossbar1_row3_CSB/I1" "/crossbar1_row3_CSB/I2" )
+save( 'i "/crossbar1_row4_CSB/I1" "/crossbar1_row4_CSB/I2" )
+save( 'i "/crossbar1_row5_CSB/I1" "/crossbar1_row5_CSB/I2" )
+save( 'i "/crossbar1_row6_CSB/I1" "/crossbar1_row6_CSB/I2" )
+save( 'i "/crossbar1_row7_CSB/I1" "/crossbar1_row7_CSB/I2" )
+save( 'i "/crossbar1_row8_CSB/I1" "/crossbar1_row8_CSB/I2" )
+save( 'i "/crossbar1_row9_CSB/I1" "/crossbar1_row9_CSB/I2" )
+save( 'i "/crossbar1_row10_CSB/I1" "/crossbar1_row10_CSB/I2" )
+
+save( 'i "/crossbar2_row1_CSB/I1" "/crossbar2_row1_CSB/I2" )
+save( 'i "/crossbar2_row2_CSB/I1" "/crossbar2_row2_CSB/I2" )
+save( 'i "/crossbar2_row3_CSB/I1" "/crossbar2_row3_CSB/I2" )
+save( 'i "/crossbar2_row4_CSB/I1" "/crossbar2_row4_CSB/I2" )
+save( 'i "/crossbar2_row5_CSB/I1" "/crossbar2_row5_CSB/I2" )
+save( 'i "/crossbar2_row6_CSB/I1" "/crossbar2_row6_CSB/I2" )
+save( 'i "/crossbar2_row7_CSB/I1" "/crossbar2_row7_CSB/I2" )
+save( 'i "/crossbar2_row8_CSB/I1" "/crossbar2_row8_CSB/I2" )
+save( 'i "/crossbar2_row9_CSB/I1" "/crossbar2_row9_CSB/I2" )
+save( 'i "/crossbar2_row10_CSB/I1" "/crossbar2_row10_CSB/I2" )
+
+save( 'i "/crossbar3_row1_CSB/I1" "/crossbar3_row1_CSB/I2" )
+save( 'i "/crossbar3_row2_CSB/I1" "/crossbar3_row2_CSB/I2" )
+*/
+
+temp( 27.0 ) 
+run()
+selectResult( 'tran )
+
+
+
+plot(getData("/crossbar3_CSB_Vout_row_1") getData("/crossbar3_CSB_Vout_row_2")) 
+
+
+
+
+
+/*
+subI1_1 = (i("/crossbar1_row1_CSB/I1" ?result "tran") - i("/crossbar1_row1_CSB/I2" ?result "tran"))
+subI1_2 = (i("/crossbar1_row2_CSB/I1" ?result "tran") - i("/crossbar1_row2_CSB/I2" ?result "tran"))
+subI1_3 = (i("/crossbar1_row3_CSB/I1" ?result "tran") - i("/crossbar1_row3_CSB/I2" ?result "tran"))
+subI1_4 = (i("/crossbar1_row4_CSB/I1" ?result "tran") - i("/crossbar1_row4_CSB/I2" ?result "tran"))
+subI1_5 = (i("/crossbar1_row5_CSB/I1" ?result "tran") - i("/crossbar1_row5_CSB/I2" ?result "tran"))
+subI1_6 = (i("/crossbar1_row6_CSB/I1" ?result "tran") - i("/crossbar1_row6_CSB/I2" ?result "tran"))
+subI1_7 = (i("/crossbar1_row7_CSB/I1" ?result "tran") - i("/crossbar1_row7_CSB/I2" ?result "tran"))
+subI1_8 = (i("/crossbar1_row8_CSB/I1" ?result "tran") - i("/crossbar1_row8_CSB/I2" ?result "tran"))
+subI1_9 = (i("/crossbar1_row9_CSB/I1" ?result "tran") - i("/crossbar1_row9_CSB/I2" ?result "tran"))
+subI1_10 = (i("/crossbar1_row10_CSB/I1" ?result "tran") - i("/crossbar1_row10_CSB/I2" ?result "tran"))
+
+subI2_1 = (i("/crossbar2_row1_CSB/I1" ?result "tran") - i("/crossbar2_row1_CSB/I2" ?result "tran"))
+subI2_2 = (i("/crossbar2_row2_CSB/I1" ?result "tran") - i("/crossbar2_row2_CSB/I2" ?result "tran"))
+subI2_3 = (i("/crossbar2_row3_CSB/I1" ?result "tran") - i("/crossbar2_row3_CSB/I2" ?result "tran"))
+subI2_4 = (i("/crossbar2_row4_CSB/I1" ?result "tran") - i("/crossbar2_row4_CSB/I2" ?result "tran"))
+subI2_5 = (i("/crossbar2_row5_CSB/I1" ?result "tran") - i("/crossbar2_row5_CSB/I2" ?result "tran"))
+subI2_6 = (i("/crossbar2_row6_CSB/I1" ?result "tran") - i("/crossbar2_row6_CSB/I2" ?result "tran"))
+subI2_7 = (i("/crossbar2_row7_CSB/I1" ?result "tran") - i("/crossbar2_row7_CSB/I2" ?result "tran"))
+subI2_8 = (i("/crossbar2_row8_CSB/I1" ?result "tran") - i("/crossbar2_row8_CSB/I2" ?result "tran"))
+subI2_9 = (i("/crossbar2_row9_CSB/I1" ?result "tran") - i("/crossbar2_row9_CSB/I2" ?result "tran"))
+subI2_10 = (i("/crossbar2_row10_CSB/I1" ?result "tran") - i("/crossbar2_row10_CSB/I2" ?result "tran"))
+
+subI3_1 = (i("/crossbar3_row1_CSB/I1" ?result "tran") - i("/crossbar3_row1_CSB/I2" ?result "tran"))
+subI3_2 = (i("/crossbar3_row2_CSB/I1" ?result "tran") - i("/crossbar3_row2_CSB/I2" ?result "tran"))
+
+*/
+
+myresult=outfile("/home/IC/Desktop/result/out")
+for(count 1 DataNum                              ;please adjust simulation time
+t_time=count*Tcomputer+DelaySampleTime
+fprintf(myresult "%d     %10.20f     " count t_time)
+
+/*
+fprintf(myresult " %10.20f     %10.20f     %10.20f    %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     " value(subI1_1 t_time) value(subI1_2 t_time) value(subI1_3 t_time) value(subI1_4 t_time) value(subI1_5 t_time) value(subI1_6 t_time) value(subI1_7 t_time) value(subI1_8 t_time) value(subI1_9 t_time) value(subI1_10 t_time))
+fprintf(myresult " %10.20f     %10.20f     %10.20f    %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     " value(subI2_1 t_time) value(subI2_2 t_time) value(subI2_3 t_time) value(subI2_4 t_time) value(subI2_5 t_time) value(subI2_6 t_time) value(subI2_7 t_time) value(subI2_8 t_time) value(subI2_9 t_time) value(subI2_10 t_time))
+fprintf(myresult "%10.20f     %10.20f     " value(subI3_1 t_time) value(subI3_2 t_time))
+*/
+fprintf(myresult "%10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     " value(getData("/crossbar1_CSB_Vout_row_1") t_time) value(getData("/crossbar1_CSB_Vout_row_2") t_time) value(getData("/crossbar1_CSB_Vout_row_3") t_time) value(getData("/crossbar1_CSB_Vout_row_4") t_time) value(getData("/crossbar1_CSB_Vout_row_5") t_time) value(getData("/crossbar1_CSB_Vout_row_6") t_time) value(getData("/crossbar1_CSB_Vout_row_7") t_time) value(getData("/crossbar1_CSB_Vout_row_8") t_time) value(getData("/crossbar1_CSB_Vout_row_9") t_time) value(getData("/crossbar1_CSB_Vout_row_10") t_time))
+
+fprintf(myresult "%10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     " value(getData("/crossbar2_CSB_Vout_row_1") t_time) value(getData("/crossbar2_CSB_Vout_row_2") t_time) value(getData("/crossbar2_CSB_Vout_row_3") t_time) value(getData("/crossbar2_CSB_Vout_row_4") t_time) value(getData("/crossbar2_CSB_Vout_row_5") t_time) value(getData("/crossbar2_CSB_Vout_row_6") t_time) value(getData("/crossbar2_CSB_Vout_row_7") t_time) value(getData("/crossbar2_CSB_Vout_row_8") t_time) value(getData("/crossbar2_CSB_Vout_row_9") t_time) value(getData("/crossbar2_CSB_Vout_row_10") t_time))
+
+fprintf(myresult "%10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     " value(getData("/crossbar2_line1") t_time) value(getData("/crossbar2_line2") t_time) value(getData("/crossbar2_line3") t_time) value(getData("/crossbar2_line4") t_time) value(getData("/crossbar2_line5") t_time) value(getData("/crossbar2_line6") t_time) value(getData("/crossbar2_line7") t_time) value(getData("/crossbar2_line8") t_time) value(getData("/crossbar2_line9") t_time) value(getData("/crossbar2_line10") t_time))
+
+fprintf(myresult "%10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     %10.20f     " value(getData("/crossbar3_line1") t_time) value(getData("/crossbar3_line2") t_time) value(getData("/crossbar3_line3") t_time) value(getData("/crossbar3_line4") t_time) value(getData("/crossbar3_line5") t_time) value(getData("/crossbar3_line6") t_time) value(getData("/crossbar3_line7") t_time) value(getData("/crossbar3_line8") t_time) value(getData("/crossbar3_line9") t_time) value(getData("/crossbar3_line10") t_time))
+
+
+
+fprintf(myresult "%10.20f     %10.20f     \n" value(getData("/crossbar3_CSB_Vout_row_1") t_time) value(getData("/crossbar3_CSB_Vout_row_2") t_time))
+)
+close(myresult)
+;load("/home/IC/Desktop/H2O_simulation")

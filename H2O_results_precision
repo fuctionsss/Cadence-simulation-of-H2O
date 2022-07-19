@@ -1,0 +1,66 @@
+clc
+clear
+close all;
+
+load Test_result.mat
+% load layer_out.mat
+load weight.mat
+
+a = 1920;
+
+W = load('1920_1M_LX.txt');%cadence_simulation_results
+W1 = W(:,43:44)*10;
+
+W1 = (W1.*scale_0_k + shift_0_b).*yk + yb;
+
+Fpx = Y1(1:a,1);  %预测值：x方向的force
+Fpy = Y1(1:a,2);  %预测值：y方向的force        
+Fx = X1(1:a,1);      %实际值：x方向的force
+Fy = X1(1:a,2);      %实际值：y方向的force
+%%%%%%%%%%%%% RMSE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+rmse1 = sqrt(sum((Fx - Fpx).^2)/a);
+rmse2 = sqrt(sum((Fy - Fpy).^2)/a);
+rmse = sqrt((rmse1.^2 + rmse2.^2 )/2);
+disp(['Accuracy=',num2str(rmse.*1000,'%.2f'),'meV/Angstrom']);
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+rng1 = [min(min(Fx)), max(max(Fx))];
+rng2 = [min(min(Fy)), max(max(Fy))];
+rng = [min(min(rng1(1,1), rng2(1,1)))-0.1, max(max(rng1(1,2), rng2(1,2)))+0.1];
+figure; hold on; grid on;
+p1 = plot(Fx, Fpx, '.r','MarkerSize',14,'lineWidth',10);
+p2 = plot(Fy, Fpy, '.G','MarkerSize',14,'lineWidth',10);
+p4 = plot(rng,rng,'-b','lineWidth',2);
+axis([-0.8, 0.7, -0.8, 0.7]);
+
+hold off;
+
+xlabel('F_{DFT}(eV/Ang)','Fontname', 'Times New Roman');
+ylabel('F_{NvN}(eV/Ang)','Fontname', 'Times New Roman');
+set(gca,'FontSize',20,'Fontname', 'Times New Roman','FontWeight','bold');
+set(get(gca,'XLabel'),'FontSize',24,'FontWeight','bold');
+
+set(get(gca,'YLabel'),'FontSize',24,'FontWeight','bold');
+% set(gca,'FontName','Times New Roman','FontSize',32,'FontWeight','bold');
+text(-0.78,0.5,'H_{2}O (RMSE=7.44meV/Ang)','color','k','FontSize',18,'Fontname', 'Times New Roman');
+%text(-0.6,0.5,'NvN-Accuracy','color','k','FontSize',24,'Fontname', 'Times New Roman');
+% set(findobj(get(gca,'Children'),'LineWidth',0.5),'LineWidth',5);
+set(gca,'box','on','linewidth',0.5);
+lgd1 = legend([p1,p2],{'F_x','F_y'},'Location','northeast','Orientation','horizon','Fontname', 'Times New Roman','FontWeight','normal');
+set(lgd1,'FontSize',16);legend boxoff;
+ah=axes('position',get(lgd1,'position'),'visible','off');
+lgd2 = legend(ah,p4,{'F_{NvN}= F_{DFT}'},'Location','northeast','Orientation','horizon','Fontname', 'Times New Roman','FontWeight','normal');
+set(lgd2,'FontSize',16);legend boxoff;
+set(get(gca,'Legend'),'FontSize',15);
+% legend([p1,p2,p3,p4],{'F_x','F_y','F_z','F_{software}=F_{DFT}',},'Location','southeast','Orientation','horizon');
+% set(gca,'box','on','linewidth',0.5);
+set(gcf,'Position',[500 100 500 400]);
+%set(gca,'Position',[.13 .17 .80 .74]);  %调整 XLABLE和YLABLE不会被切掉
+% figure_FontSize=26;
+% set(get(gca,'XLabel'),'FontSize',figure_FontSize,'Vertical','top');
+% set(get(gca,'YLabel'),'FontSize',figure_FontSize,'Vertical','middle');
+%set(findobj('FontSize',20),'FontSize',figure_FontSize);
+set(findobj(get(gca,'Children'),'LineWidth',0.5),'LineWidth',5);
+%saveas(gcf,'fn_img1','tif');

@@ -37,4 +37,4 @@ close(W_neg_inport)
 close(Weight_out)
 );end layer for
 
-;load("/home/IC/Desktop/WriteWeight")
+;load("/home/IC/Desktop/write_weights")

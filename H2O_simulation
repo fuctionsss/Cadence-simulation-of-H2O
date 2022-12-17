@@ -1,7 +1,7 @@
 /*******************************************Adjust in here***********************************/
-Tcomputer=1e-6
-DataNum=20
-DelaySampleTime=1e-8
+Tcomputer=2.5e-8
+DataNum=1920
+DelaySampleTime=5e-10
 EndTime=DataNum*Tcomputer+DelaySampleTime
 ;load("/home/IC/Desktop/tran_2V")
 /********************************************************************************************/
@@ -31,7 +31,7 @@ modelFile(
     '("/home/IC/Workenvironment/silterraC18G_v2_4_21May2019_OA/silterraC18G/../RFESDPAD/models/spectre/silc18g_sigpad_4lm_rev1_2.scs" "silc18g_sigpad_4lm_nom")
 )
 
-;analysis('tran ?stop EndTime  ?errpreset "conservative"  ?tranNoise "Transient Noise"  ?noisefmax "1000M"  ?noisefmin "1M"  ?noiseseed "1"  ?noisescale "0.5"  ?noisetmin ""  ?noiseupdate "step"  ?noiseonoff ""  ?noiseinst ""  )
+;analysis('tran ?stop EndTime  ?errpreset "conservative"  ?tranNoise "Transient Noise"  ?noisefmax "1000M"  ?noisefmin "1M"  ?noiseseed "1"  ?noisescale "0.1"  ?noisetmin ""  ?noiseupdate "step"  ?noiseonoff ""  ?noiseinst ""  )
 analysis('tran ?stop EndTime  ?errpreset "conservative")
 
 desVar(	  "GND" 0	)

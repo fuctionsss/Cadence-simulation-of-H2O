@@ -54,4 +54,4 @@ close(W_neg_inport)
 
 hiFormDone(sevVariablesForm1)
 
-;load("/home/IC/Desktop/H2Ocomputer_simulation_config")
+;load("/home/IC/Desktop/H2O_schematic_variable_config")

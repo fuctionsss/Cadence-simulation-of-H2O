@@ -3,7 +3,7 @@ Tcomputer=2.5e-8
 DataNum=1920
 DelaySampleTime=5e-10
 EndTime=DataNum*Tcomputer+DelaySampleTime
-;load("/home/IC/Desktop/tran_2V")
+;load("/home/IC/Desktop/H2O_simulation")
 /********************************************************************************************/
 simulator( 'spectre )
 design(	 "/home/IC/simulation/Tran_test_2V_lower/spectre/schematic/netlist/netlist")
